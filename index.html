@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Nhập số Feet hoặc Meter muốn chuyển đổi</h1>
+<input type="number" id="inputNum" oninput="lengthConverter()">
+<select id="lenSystem">
+    <option value="meter">Meter</option>
+    <option value="feet" selected>Feet</option>
+</select>
+<br>
+<h2 style="display: inline-block; padding-right: 30px;">Kết quả: </h2>
+<h2 style="display: inline-block" id="display"></h2>
+</body>
+</html>
+<script>
+    function lengthConverter() {
+        let value = +document.getElementById('inputNum').value;
+        let result = '';
+        let lengthSystem = document.getElementById('lenSystem').value;
+        console.log(value, result, lengthSystem);
+        if (lengthSystem === 'meter') {
+            result = 3.279 * value + ' Foot';
+        } else if (lengthSystem === 'feet') {
+            result = 0.305 * value + ' Meter';
+        }
+        document.getElementById('display').innerHTML = result;
+    }
+
+    // meter = 0.305 * foot
+    // foot = 3.279 * meter
+
+
+</script>
